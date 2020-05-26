@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import ChoiceCard from "./components/ChoiceCard";
 import NameForm from "./components/NameForm";
@@ -20,6 +20,8 @@ const CHOICES = {
 };
 
 let history = [];
+let historyArray = [];
+let num = 0;
 
 function App() {
     // let htmlResult;
@@ -29,30 +31,37 @@ function App() {
     let [computerC, setcomputerC] = useState({});
     let [result, setresult] = useState("");
     let [previousWinner, setPreviousWinner] = useState(null);
+    // const [historyA, sethistoryA] = useState([]);
 
     let play = (userChoice) => {
         // userChoose(userChoice);
         let uChoice = userChoice;
         let cChoice = computerChoice();
         let tempResult = getResult(uChoice, cChoice);
-        setflawless(checkHistory(tempResult));
+        let tempPrevious = "";
+
         if (tempResult === "Victory!") {
-            setPreviousWinner("You");
+            tempPrevious = "You";
         } else if (tempResult === "Defeat!") {
-            setPreviousWinner("Computer");
+            tempPrevious = "Computer";
         } else {
-            setPreviousWinner("Tie");
+            tempPrevious = "Tie";
         }
+        setflawless(checkHistory(tempResult));
+        setPreviousWinner(tempPrevious);
         setuserC(CHOICES[uChoice]);
         setcomputerC(CHOICES[cChoice]);
         setresult(tempResult);
 
+        // return [uChoice, cChoice, tempResult]
         // htmlResult = result;
         // console.log("result:", userC.name, computerC.name, getResult());
     };
     let checkHistory = (newResult) => {
         let prettyResult = "";
-        history.unshift(newResult);
+        num += 1;
+        history.unshift(`${num}. ${newResult}`);
+        historyArray = history.map((item) => <div>{item}</div>);
         console.log(history);
         if (history[0] === "Victory!" && history[1] === "Victory!" && history[2] === "Victory!") {
             prettyResult = "Flawless Victory!";
@@ -94,7 +103,9 @@ function App() {
         // }
         return result;
     };
-
+    useEffect(() => {
+        console.log(userC, computerC, result);
+    });
     return (
         <div className="App">
             {/* {user === "" ? <NameForm></NameForm> : <h1>WTF</h1>} */}
@@ -116,11 +127,7 @@ function App() {
 
             {/* </div> */}
             <ChoiceCard title="Computer" choice={computerC} previousWinner={previousWinner} />
-            <div className="history my-auto">
-                {history.map((item) => (
-                    <div>{item}</div>
-                ))}
-            </div>
+            <div className="history my-auto mr-5">{historyArray}</div>
         </div>
     );
 }

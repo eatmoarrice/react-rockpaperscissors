@@ -39,12 +39,11 @@ h1 {
 .history {
     overflow: hidden;
     height: 500px;
-    border-radius: 30px;
-    border: 2px solid green;
+    border-radius: 20px;
+    /* border: 2px solid green; */
     padding: 20px;
-    width: 100px;
-    background-color: darkolivegreen;
-    color: white;
+    width: 200px;
+    background-color: rgb(172, 152, 138);
 }
 
 #flawless {
@@ -55,4 +54,11 @@ h1 {
 
 .mid {
     width: 200px;
+}
+
+.history > div {
+    margin: 10px;
+    font-size: 18px;
+    color: white;
+    text-align: justify;
 }

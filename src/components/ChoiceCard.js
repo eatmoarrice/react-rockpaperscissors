@@ -1,6 +1,6 @@
 import React from "react";
 
-const DEFAULT_IMG = "http://www.thewateringhole.co.uk/wp-content/uploads/2012/12/play.png";
+const DEFAULT_IMG = "https://freesvg.org/img/1457633527.png";
 
 export default function ChoiceCard(props) {
     const won = props.title === props.previousWinner;
