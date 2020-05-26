@@ -4,6 +4,7 @@ const DEFAULT_IMG = "https://freesvg.org/img/1457633527.png";
 
 export default function ChoiceCard(props) {
     const won = props.title === props.previousWinner;
+    const www = props.flawless;
     let className;
     const hasPreviousGame = props.previousWinner === "Computer" || props.previousWinner === "You";
     if (hasPreviousGame) {
@@ -14,14 +15,16 @@ export default function ChoiceCard(props) {
     if (won) {
         prompt = "Won!";
         className = won ? "winner" : "loser";
+        if (www === "Flawless Victory!") prompt = "Whoa! You should buy a lottery ticket!";
     } else if (props.previousWinner === "Tie") {
         prompt = "It's a tie!";
     } else if (props.previousWinner === null) {
         prompt = "Start";
     } else {
         prompt = "Defeated!";
+        if (www === "Catastrophic Defeat!") prompt = "You were beaten senselessly by a computer!";
     }
-
+    if (www === "Catastrophic Defeat!" && props.title === "Computer") prompt = "Flawless Victory!";
     return (
         <div className={`choice-card ${className}`}>
             <h1>{props.title}</h1>

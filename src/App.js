@@ -22,6 +22,8 @@ const CHOICES = {
 let history = [];
 let historyArray = [];
 let num = 0;
+let vcount = 0;
+let lcount = 0;
 
 function App() {
     // let htmlResult;
@@ -60,14 +62,33 @@ function App() {
     let checkHistory = (newResult) => {
         let prettyResult = "";
         num += 1;
+        if (newResult === "Victory!") {
+            vcount += 1;
+            lcount = 0;
+        } else if (newResult === "Defeat!") {
+            vcount = 0;
+            lcount += 1;
+        } else {
+            vcount = 0;
+            lcount = 0;
+        }
+        console.log(vcount, lcount);
+        if (vcount === 2) {
+            newResult = "Flawless Victory!";
+            prettyResult = newResult;
+        } else if (lcount === 2) {
+            newResult = "Catastrophic Defeat!";
+            prettyResult = newResult;
+        }
+        // if (history[0] === "Victory!" && history[1] === "Victory!" && history[2] === "Victory!") {
+        //     prettyResult = "Flawless Victory!";
+        // }
+
         // history = history.concat(`${num}. ${newResult}`);
         history = [`${num}. ${newResult}`, ...historyA];
         sethistoryA(history);
-        historyArray = history.map((item) => <div>{item}</div>);
+        // historyArray = history.map((item) => <div>{item}</div>);
         console.log(history);
-        if (history[0] === "Victory!" && history[1] === "Victory!" && history[2] === "Victory!") {
-            prettyResult = "Flawless Victory!";
-        }
         return prettyResult;
     };
     let computerChoice = () => {
@@ -111,7 +132,7 @@ function App() {
     return (
         <div className="App">
             {/* {user === "" ? <NameForm></NameForm> : <h1>WTF</h1>} */}
-            <ChoiceCard title="You" choice={userC} previousWinner={previousWinner} />
+            <ChoiceCard title="You" choice={userC} previousWinner={previousWinner} flawless={flawless} />
             {/* <div> */}
             <div className="d-flex flex-column justify-content-center mid">
                 <button className="btn btn-primary my-3" onClick={() => play("rock")}>
@@ -123,12 +144,12 @@ function App() {
                 <button className="btn btn-primary my-3" onClick={() => play("scissors")}>
                     Scissors
                 </button>
-                <div>Result is: {result}</div>
-                <div id="flawless">{flawless}</div>
+                {/* <div>Result is: {result}</div>
+                <div id="flawless">{flawless}</div> */}
             </div>
 
             {/* </div> */}
-            <ChoiceCard title="Computer" choice={computerC} previousWinner={previousWinner} />
+            <ChoiceCard title="Computer" choice={computerC} previousWinner={previousWinner} flawless={flawless} />
             <div className="history my-auto mr-5">
                 {historyA.map((item) => (
                     <div>{item}</div>
