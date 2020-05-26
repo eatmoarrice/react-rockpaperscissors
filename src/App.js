@@ -31,7 +31,7 @@ function App() {
     let [computerC, setcomputerC] = useState({});
     let [result, setresult] = useState("");
     let [previousWinner, setPreviousWinner] = useState(null);
-    // const [historyA, sethistoryA] = useState([]);
+    const [historyA, sethistoryA] = useState([]);
 
     let play = (userChoice) => {
         // userChoose(userChoice);
@@ -60,7 +60,9 @@ function App() {
     let checkHistory = (newResult) => {
         let prettyResult = "";
         num += 1;
-        history.unshift(`${num}. ${newResult}`);
+        // history = history.concat(`${num}. ${newResult}`);
+        history = [`${num}. ${newResult}`, ...historyA];
+        sethistoryA(history);
         historyArray = history.map((item) => <div>{item}</div>);
         console.log(history);
         if (history[0] === "Victory!" && history[1] === "Victory!" && history[2] === "Victory!") {
@@ -127,7 +129,11 @@ function App() {
 
             {/* </div> */}
             <ChoiceCard title="Computer" choice={computerC} previousWinner={previousWinner} />
-            <div className="history my-auto mr-5">{historyArray}</div>
+            <div className="history my-auto mr-5">
+                {historyA.map((item) => (
+                    <div>{item}</div>
+                ))}
+            </div>
         </div>
     );
 }
