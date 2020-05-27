@@ -14,7 +14,7 @@ export default function ChoiceCard(props) {
 	let prompt;
 	if (won) {
 		prompt = 'Won!';
-		className = won ? 'winner' : 'loser';
+		className = 'winner';
 		if (www === 'Flawless Victory!') prompt = 'Whoa! You should buy a lottery ticket!';
 	} else if (props.previousWinner === 'Tie') {
 		prompt = "It's a tie!";
@@ -22,6 +22,7 @@ export default function ChoiceCard(props) {
 		prompt = 'Start';
 	} else {
 		prompt = 'Defeated!';
+		className = 'loser';
 		if (www === 'Catastrophic Defeat!') prompt = 'You were beaten senselessly by a computer!';
 	}
 	if (www === 'Catastrophic Defeat!' && props.title === 'Computer') prompt = 'Flawless Victory!';
