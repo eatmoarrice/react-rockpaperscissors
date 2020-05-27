@@ -45,7 +45,7 @@ function App() {
 		let tempPrevious = '';
 
 		if (tempResult === 'Victory!') {
-			tempPrevious = 'You';
+			tempPrevious = username;
 		} else if (tempResult === 'Defeat!') {
 			tempPrevious = 'Computer';
 		} else {
