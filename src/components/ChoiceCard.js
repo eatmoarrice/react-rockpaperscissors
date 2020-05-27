@@ -29,7 +29,9 @@ export default function ChoiceCard(props) {
 	return (
 		<div className={`choice-card ${className}`}>
 			<h1>{props.title}</h1>
-			<img src={props.choice.url || DEFAULT_IMG} alt={props.title} />
+			<div class="image-container">
+				<img src={props.choice.url || DEFAULT_IMG} alt={props.title} />
+			</div>
 			<h3>{prompt}</h3>
 		</div>
 	);

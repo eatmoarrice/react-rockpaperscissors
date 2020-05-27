@@ -26,15 +26,64 @@
 	justify-content: space-around;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-img {
+.image-container {
+	position: relative;
 	border-radius: 50%;
 	padding: 10px;
 	width: 150px;
-	/* border: 2px solid rgb(255, 255, 255); */
 	height: 150px;
+	/* overflow: hidden; */
 	background: rgb(243, 241, 194);
 	background: linear-gradient(180deg, rgba(243, 241, 194, 1) 0%, rgba(71, 167, 123, 1) 100%);
 }
+
+img {
+	left: 0;
+	top: 0;
+	position: absolute;
+	border-radius: 50%;
+	padding: 10px;
+	width: 150px;
+	animation-name: popping;
+	animation-timing-function: linear;
+	animation-duration: 1.5s;
+	animation-iteration-count: infinite;
+	height: 150px;
+}
+
+@keyframes popping {
+	0% {
+		left: 0;
+		top: 0;
+		width: 150px;
+		height: 150px;
+	}
+	25% {
+		left: +15px;
+		top: +15px;
+		width: 120px;
+		height: 120px;
+	}
+	50% {
+		left: 0;
+		top: 0;
+		width: 150px;
+		height: 150px;
+	}
+	75% {
+		left: -10px;
+		top: -10px;
+		width: 170px;
+		height: 170px;
+	}
+	100% {
+		left: 0;
+		top: 0;
+		width: 150px;
+		height: 150px;
+	}
+}
+
 h1 {
 	font-size: 40px;
 }
@@ -56,6 +105,7 @@ h1 {
 	padding: 15px;
 	width: 220px;
 	background-color: rgba(172, 152, 138, 0.623);
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 /* #flawless {
@@ -92,8 +142,13 @@ h1 {
 	box-shadow: none;
 	border-color: coral;
 	background: brown;
+	transition-duration: 0.3s;
 }
 
+.round-button:hover {
+	border: 2px solid deeppink;
+	transition-duration: 0.3s;
+}
 .round-button:disabled {
 	box-shadow: none;
 	pointer-events: none;
