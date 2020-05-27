@@ -22,7 +22,7 @@
 	/* background-color: white; */
 	background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
 	align-items: center;
-	border: 6px solid black;
+	border: 6px double rgb(56, 56, 56);
 	justify-content: space-around;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -40,13 +40,13 @@ h1 {
 }
 .winner {
 	color: green;
-	border: 6px solid green;
-	box-shadow: 0px 0px 23px 8px rgba(113, 240, 147, 1);
+	border: 6px double green;
+	box-shadow: 0px 0px 15px 5px rgba(113, 240, 147, 1);
 }
 .loser {
 	color: rgb(255, 95, 95);
-	box-shadow: 0px 0px 23px 8px rgb(240, 149, 113);
-	border: 6px solid rgb(255, 96, 23);
+	box-shadow: 0px 0px 15px 5px rgb(240, 149, 113);
+	border: 6px double rgb(255, 96, 23);
 }
 .history {
 	overflow: hidden;
