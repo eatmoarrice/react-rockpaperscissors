@@ -34,6 +34,7 @@ function App() {
 	let [result, setresult] = useState('');
 	let [previousWinner, setPreviousWinner] = useState(null);
 	const [historyA, sethistoryA] = useState([]);
+	const [username, setUsername] = useState('You');
 
 	let play = (userChoice) => {
 		// userChoose(userChoice);
@@ -133,9 +134,13 @@ function App() {
 		<div className="App">
 			{/* {user === "" ? <NameForm></NameForm> : <h1>WTF</h1>} */}
 			{/* <Container> */}
+
 			<div className="container">
+				<form>
+					<input name="username" placeholder="Username" onChange={(e) => setUsername(e.target.value)} />
+				</form>
 				<div className="d-flex justify-content-around">
-					<ChoiceCard title="You" choice={userC} previousWinner={previousWinner} flawless={flawless} />
+					<ChoiceCard title={username} choice={userC} previousWinner={previousWinner} flawless={flawless} />
 					{/* <div> */}
 					<div className="d-flex flex-column justify-content-center mid">
 						<button className="btn round-button btn-primary my-3" onClick={() => play('rock')}>

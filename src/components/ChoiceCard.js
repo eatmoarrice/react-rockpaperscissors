@@ -6,7 +6,7 @@ export default function ChoiceCard(props) {
 	const won = props.title === props.previousWinner;
 	const www = props.flawless;
 	let className;
-	const hasPreviousGame = props.previousWinner === 'Computer' || props.previousWinner === 'You';
+	const hasPreviousGame = props.previousWinner === 'Computer' || props.previousWinner === props.title;
 	if (hasPreviousGame) {
 		className = won ? 'winner' : 'loser';
 	}
