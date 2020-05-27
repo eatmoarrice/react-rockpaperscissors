@@ -1,61 +1,61 @@
 .App {
-	flex: 1;
-	display: flex;
-	min-height: 100vh;
-	text-align: center;
-	/* background-color: #e9ebee; */
-	background: rgb(34, 34, 34);
-	background: linear-gradient(90deg, rgba(34, 34, 34, 1) 0%, rgba(88, 88, 88, 1) 49%, rgba(0, 0, 0, 1) 100%);
+    flex: 1;
+    display: flex;
+    min-height: 100vh;
+    text-align: center;
+    /* background-color: #e9ebee; */
+    background: rgb(34, 34, 34);
+    background: linear-gradient(90deg, rgba(34, 34, 34, 1) 0%, rgba(88, 88, 88, 1) 49%, rgba(0, 0, 0, 1) 100%);
 }
 .choice-card {
-	flex: 1;
-	display: flex;
-	margin: 50px;
-	font-size: 3em;
-	padding: 0 40px;
-	font-weight: 300;
-	text-align: center;
-	min-height: 500px;
-	min-width: 300px;
-	border-radius: 8%;
-	flex-direction: column;
-	/* background-color: white; */
-	background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
-	align-items: center;
-	border: 6px solid black;
-	justify-content: space-around;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    flex: 1;
+    display: flex;
+    margin: 50px;
+    font-size: 3em;
+    padding: 0 40px;
+    font-weight: 300;
+    text-align: center;
+    min-height: 500px;
+    min-width: 300px;
+    border-radius: 8%;
+    flex-direction: column;
+    /* background-color: white; */
+    background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+    align-items: center;
+    border: 6px solid black;
+    justify-content: space-around;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 img {
-	border-radius: 50%;
-	padding: 10px;
-	width: 150px;
-	/* border: 2px solid rgb(255, 255, 255); */
-	height: 150px;
-	background: rgb(243, 241, 194);
-	background: linear-gradient(180deg, rgba(243, 241, 194, 1) 0%, rgba(71, 167, 123, 1) 100%);
+    border-radius: 50%;
+    padding: 10px;
+    width: 150px;
+    /* border: 2px solid rgb(255, 255, 255); */
+    height: 150px;
+    background: rgb(243, 241, 194);
+    background: linear-gradient(180deg, rgba(243, 241, 194, 1) 0%, rgba(71, 167, 123, 1) 100%);
 }
 h1 {
-	font-size: 40px;
+    font-size: 40px;
 }
 .winner {
-	color: green;
-	border: 6px solid green;
-	box-shadow: 0px 0px 23px 8px rgba(113, 240, 147, 1);
+    color: green;
+    border: 6px solid green;
+    box-shadow: 0px 0px 23px 8px rgba(113, 240, 147, 1);
 }
 .loser {
-	color: rgb(255, 95, 95);
-	box-shadow: 0px 0px 23px 8px rgb(240, 149, 113);
-	border: 6px solid rgb(255, 96, 23);
+    color: rgb(255, 95, 95);
+    box-shadow: 0px 0px 23px 8px rgb(240, 149, 113);
+    border: 6px solid rgb(255, 96, 23);
 }
 .history {
-	overflow: hidden;
-	height: 500px;
-	border-radius: 20px;
-	/* border: 2px solid green; */
-	padding: 15px;
-	width: 220px;
-	background-color: rgba(172, 152, 138, 0.623);
+    overflow: hidden;
+    height: 500px;
+    border-radius: 20px;
+    /* border: 2px solid green; */
+    padding: 15px;
+    width: 220px;
+    background-color: rgba(172, 152, 138, 0.623);
 }
 
 /* #flawless {
@@ -65,38 +65,41 @@ h1 {
 } */
 
 .mid {
-	width: 200px;
+    width: 200px;
 }
 
 .history > div {
-	margin: 5px;
-	margin-bottom: 10px;
-	font-size: 16px;
-	color: white;
-	text-align: left;
+    margin: 5px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: white;
+    text-align: left;
 }
 
 .round-button {
-	border-radius: 50%;
-	width: 5vw;
-	height: 5vw;
-	font-size: 20px;
-	font-weight: 700;
-	padding: 5px;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    font-size: 18px;
+    background: rgb(44, 197, 215);
+    background: radial-gradient(circle, rgba(44, 197, 215, 1) 0%, rgba(17, 69, 99, 1) 47%, rgba(2, 0, 36, 1) 100%);
+    font-weight: 700;
+    /* padding: 5px*/
 }
 
 .round-button:focus {
-	box-shadow: none;
-	border-color: coral;
-	background-color: brown;
+    border: 5px solid;
+    box-shadow: none;
+    border-color: coral;
+    background: brown;
 }
 
 .round-button:disabled {
-	box-shadow: none;
-	border-color: rgb(182, 182, 182) !important;
-	background-color: rgb(114, 114, 114) !important;
+    box-shadow: none;
+    border-color: rgb(182, 182, 182) !important;
+    background-color: rgb(114, 114, 114) !important;
 }
 
 .container {
-	background-color: rgba(11, 97, 85, 0.22);
+    background-color: rgba(11, 97, 85, 0.22);
 }
