@@ -35,6 +35,7 @@ function App() {
 	let [previousWinner, setPreviousWinner] = useState(null);
 	const [historyA, sethistoryA] = useState([]);
 	const [username, setUsername] = useState('You');
+	const [disabledClass, setDisabledClass] = useState('disabled');
 
 	let play = (userChoice) => {
 		// userChoose(userChoice);
@@ -127,6 +128,10 @@ function App() {
 		// }
 		return result;
 	};
+
+	let startGame = () => {
+		setDisabledClass('');
+	};
 	useEffect(() => {
 		console.log(userC, computerC, result);
 	});
@@ -136,20 +141,23 @@ function App() {
 			{/* <Container> */}
 
 			<div className="container">
-				<form>
+				<div>
 					<input name="username" placeholder="Username" onChange={(e) => setUsername(e.target.value)} />
-				</form>
+					<button className="btn btn-success my-3" onClick={() => startGame()}>
+						Start
+					</button>
+				</div>
 				<div className="d-flex justify-content-around">
 					<ChoiceCard title={username} choice={userC} previousWinner={previousWinner} flawless={flawless} />
 					{/* <div> */}
 					<div className="d-flex flex-column justify-content-center mid">
-						<button className="btn round-button btn-primary my-3" onClick={() => play('rock')}>
+						<button className={`btn round-button btn-primary my-3 ${disabledClass}`} onClick={disabledClass === 'disabled' ? null : () => play('rock')}>
 							Rock
 						</button>
-						<button className="btn round-button btn-primary my-3" onClick={() => play('paper')}>
+						<button className={`btn round-button btn-primary my-3 ${disabledClass}`} onClick={disabledClass === 'disabled' ? null : () => play('paper')}>
 							Paper
 						</button>
-						<button className="btn round-button btn-primary my-3" onClick={() => play('scissors')}>
+						<button className={`btn round-button btn-primary my-3 ${disabledClass}`} onClick={disabledClass === 'disabled' ? null : () => play('scissors')}>
 							Scissors
 						</button>
 						{/* <div>Result is: {result}</div>
