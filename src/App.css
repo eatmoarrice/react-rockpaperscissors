@@ -4,8 +4,8 @@
 	min-height: 100vh;
 	text-align: center;
 	/* background-color: #e9ebee; */
-	background-image: url('https://images.all-free-download.com/images/graphicthumb/dark_ornate_floral_seamless_pattern_vector_542457.jpg');
-	background-repeat: repeat;
+	background: rgb(34, 34, 34);
+	background: linear-gradient(90deg, rgba(34, 34, 34, 1) 0%, rgba(88, 88, 88, 1) 49%, rgba(0, 0, 0, 1) 100%);
 }
 .choice-card {
 	flex: 1;
@@ -17,30 +17,36 @@
 	text-align: center;
 	min-height: 500px;
 	min-width: 300px;
-	border-radius: 10%;
+	border-radius: 8%;
 	flex-direction: column;
-	background-color: white;
+	/* background-color: white; */
+	background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
 	align-items: center;
-	border: 10px solid black;
+	border: 6px solid black;
 	justify-content: space-around;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 img {
+	border-radius: 50%;
+	padding: 10px;
 	width: 150px;
+	/* border: 2px solid rgb(255, 255, 255); */
 	height: 150px;
+	background: rgb(243, 241, 194);
+	background: linear-gradient(180deg, rgba(243, 241, 194, 1) 0%, rgba(71, 167, 123, 1) 100%);
 }
 h1 {
 	font-size: 40px;
 }
 .winner {
 	color: green;
-	border: 10px solid green;
+	border: 6px solid green;
 	box-shadow: 0px 0px 23px 8px rgba(113, 240, 147, 1);
 }
 .loser {
-	color: red;
+	color: rgb(255, 95, 95);
 	box-shadow: 0px 0px 23px 8px rgb(240, 149, 113);
-	border: 10px solid red;
+	border: 6px solid rgb(255, 96, 23);
 }
 .history {
 	overflow: hidden;
