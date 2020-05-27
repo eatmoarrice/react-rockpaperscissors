@@ -95,9 +95,9 @@ h1 {
 }
 
 .round-button:disabled {
-	cursor: default;
 	box-shadow: none;
 	pointer-events: none;
+	background: rgb(187, 199, 201);
 	border-color: rgb(182, 182, 182) !important;
 	background-color: rgb(114, 114, 114) !important;
 }
