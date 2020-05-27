@@ -1,21 +1,21 @@
-import React, { useState, useEffect } from 'react';
-import './App.css';
-import ChoiceCard from './components/ChoiceCard';
-import NameForm from './components/NameForm';
+import React, { useState, useEffect } from "react";
+import "./App.css";
+import ChoiceCard from "./components/ChoiceCard";
+import NameForm from "./components/NameForm";
 // import List from "./components/List";
 
 const CHOICES = {
 	scissors: {
-		name: 'scissors',
-		url: 'https://cdn.pixabay.com/photo/2020/02/25/06/42/scissors-4878121_960_720.png',
+		name: "scissors",
+		url: "https://cdn.pixabay.com/photo/2020/02/25/06/42/scissors-4878121_960_720.png",
 	},
 	paper: {
-		name: 'paper',
-		url: 'https://freesvg.org/img/cash2.png',
+		name: "paper",
+		url: "https://freesvg.org/img/cash2.png",
 	},
 	rock: {
-		name: 'rock',
-		url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Diamond_Flat_Icon_Vector.svg/1024px-Diamond_Flat_Icon_Vector.svg.png',
+		name: "rock",
+		url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Diamond_Flat_Icon_Vector.svg/1024px-Diamond_Flat_Icon_Vector.svg.png",
 	},
 };
 
@@ -27,29 +27,29 @@ let lcount = 0;
 
 function App() {
 	// let htmlResult;
-	const [flawless, setflawless] = useState('');
-	let user = '';
+	const [flawless, setflawless] = useState("");
+	let user = "";
 	let [userC, setuserC] = useState({});
 	let [computerC, setcomputerC] = useState({});
-	let [result, setresult] = useState('');
+	let [result, setresult] = useState("");
 	let [previousWinner, setPreviousWinner] = useState(null);
 	const [historyA, sethistoryA] = useState([]);
-	const [username, setUsername] = useState('You');
-	const [disabledClass, setDisabledClass] = useState('disabled');
+	const [username, setUsername] = useState("You");
+	const [disabledClass, setDisabledClass] = useState("disabled");
 
 	let play = (userChoice) => {
 		// userChoose(userChoice);
 		let uChoice = userChoice;
 		let cChoice = computerChoice();
 		let tempResult = getResult(uChoice, cChoice);
-		let tempPrevious = '';
+		let tempPrevious = "";
 
-		if (tempResult === 'Victory!') {
+		if (tempResult === "Victory!") {
 			tempPrevious = username;
-		} else if (tempResult === 'Defeat!') {
-			tempPrevious = 'Computer';
+		} else if (tempResult === "Defeat!") {
+			tempPrevious = "Computer";
 		} else {
-			tempPrevious = 'Tie';
+			tempPrevious = "Tie";
 		}
 		setflawless(checkHistory(tempResult));
 		setPreviousWinner(tempPrevious);
@@ -62,12 +62,12 @@ function App() {
 		// console.log("result:", userC.name, computerC.name, getResult());
 	};
 	let checkHistory = (newResult) => {
-		let prettyResult = '';
+		let prettyResult = "";
 		num += 1;
-		if (newResult === 'Victory!') {
+		if (newResult === "Victory!") {
 			vcount += 1;
 			lcount = 0;
-		} else if (newResult === 'Defeat!') {
+		} else if (newResult === "Defeat!") {
 			vcount = 0;
 			lcount += 1;
 		} else {
@@ -76,10 +76,10 @@ function App() {
 		}
 		console.log(vcount, lcount);
 		if (vcount === 2) {
-			newResult = 'Flawless Victory!';
+			newResult = "Flawless Victory!";
 			prettyResult = newResult;
 		} else if (lcount === 2) {
-			newResult = 'Catastrophic Defeat!';
+			newResult = "Catastrophic Defeat!";
 			prettyResult = newResult;
 		}
 		// if (history[0] === "Victory!" && history[1] === "Victory!" && history[2] === "Victory!") {
@@ -109,16 +109,16 @@ function App() {
 
 	let getResult = (u, c) => {
 		let result;
-		if (u === 'rock') {
-			result = c === 'scissors' ? 'Victory!' : 'Defeat!';
+		if (u === "rock") {
+			result = c === "scissors" ? "Victory!" : "Defeat!";
 		}
-		if (u === 'paper') {
-			result = c === 'rock' ? 'Victory!' : 'Defeat!';
+		if (u === "paper") {
+			result = c === "rock" ? "Victory!" : "Defeat!";
 		}
-		if (u === 'scissors') {
-			result = c === 'paper' ? 'Victory!' : 'Defeat!';
+		if (u === "scissors") {
+			result = c === "paper" ? "Victory!" : "Defeat!";
 		}
-		if (u === c) result = 'Tie game!';
+		if (u === c) result = "Tie game!";
 		// if (result === "Victory!") {
 		//   setPreviousWinner("You");
 		// } else if (result === "Defeat!") {
@@ -130,7 +130,7 @@ function App() {
 	};
 
 	let startGame = () => {
-		setDisabledClass('');
+		setDisabledClass("");
 	};
 	useEffect(() => {
 		console.log(userC, computerC, result);
@@ -151,13 +151,13 @@ function App() {
 					<ChoiceCard title={username} choice={userC} previousWinner={previousWinner} flawless={flawless} />
 					{/* <div> */}
 					<div className="d-flex flex-column justify-content-center mid">
-						<button className={`btn round-button btn-primary my-3 ${disabledClass}`} onClick={disabledClass === 'disabled' ? null : () => play('rock')}>
-							Rock
+						<button className={`btn round-button btn-primary my-3`} disabled={disabledClass === "disabled" ? true : false} onClick={() => play("rock")}>
+							rock
 						</button>
-						<button className={`btn round-button btn-primary my-3 ${disabledClass}`} onClick={disabledClass === 'disabled' ? null : () => play('paper')}>
+						<button className={`btn round-button btn-primary my-3`} disabled={disabledClass === "disabled" ? true : false} onClick={() => play("paper")}>
 							Paper
 						</button>
-						<button className={`btn round-button btn-primary my-3 ${disabledClass}`} onClick={disabledClass === 'disabled' ? null : () => play('scissors')}>
+						<button className={`btn round-button btn-primary my-3`} disabled={disabledClass === "disabled" ? true : false} onClick={() => play("scissors")}>
 							Scissors
 						</button>
 						{/* <div>Result is: {result}</div>

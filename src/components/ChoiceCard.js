@@ -1,31 +1,31 @@
-import React from 'react';
+import React from "react";
 
-const DEFAULT_IMG = 'https://freesvg.org/img/1457633527.png';
+const DEFAULT_IMG = "https://freesvg.org/img/1457633527.png";
 
 export default function ChoiceCard(props) {
-	const won = props.title === props.previousWinner;
+	const won = props.title === props.previousWinner || props.previousWinner === "You";
 	const www = props.flawless;
 	let className;
-	const hasPreviousGame = props.previousWinner === 'Computer' || props.previousWinner === props.title;
+	const hasPreviousGame = props.previousWinner === "Computer" || props.previousWinner === props.title;
 	if (hasPreviousGame) {
-		className = won ? 'winner' : 'loser';
+		className = won ? "winner" : "loser";
 	}
 
 	let prompt;
 	if (won) {
-		prompt = 'Won!';
-		className = 'winner';
-		if (www === 'Flawless Victory!') prompt = 'Whoa! You should buy a lottery ticket!';
-	} else if (props.previousWinner === 'Tie') {
+		prompt = "Won!";
+		className = "winner";
+		if (www === "Flawless Victory!") prompt = "Whoa! You should buy a lottery ticket!";
+	} else if (props.previousWinner === "Tie") {
 		prompt = "It's a tie!";
 	} else if (props.previousWinner === null) {
-		prompt = 'Start';
+		prompt = "Start";
 	} else {
-		prompt = 'Defeated!';
-		className = 'loser';
-		if (www === 'Catastrophic Defeat!') prompt = 'You were beaten senselessly by a computer!';
+		prompt = "Defeated!";
+		className = "loser";
+		if (www === "Catastrophic Defeat!") prompt = "You were beaten senselessly by a computer!";
 	}
-	if (www === 'Catastrophic Defeat!' && props.title === 'Computer') prompt = 'Flawless Victory!';
+	if (www === "Catastrophic Defeat!" && props.title === "Computer") prompt = "Flawless Victory!";
 	return (
 		<div className={`choice-card ${className}`}>
 			<h1>{props.title}</h1>
